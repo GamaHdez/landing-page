@@ -1,0 +1,137 @@
+procedure Tform1.CambiarEstilo(s:TFontStyle);
+begin
+   With Etiqueta.Font do
+    if s In Style Then
+       Style:=Style-[s]
+    Else
+       Style:=Style+[s];
+
+end;
+
+unit ejemplolabel;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls,
+  Forms, Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Etiqueta: TLabel;
+    Boton1: TButton;
+    Boton2: TButton;
+    Boton3: TButton;
+    Boton4: TButton;
+    Boton5: TButton;
+    Boton6: TButton;
+    Boton7: TButton;
+    Boton8: TButton;
+    Boton9: TButton;
+    Boton10: TButton;
+    Boton11: TButton;
+    Boton12: TButton;
+    procedure CambiarEstilo(s:TFontStyle);
+    procedure Boton12Click(Sender: TObject);
+    procedure Boton11Click(Sender: TObject);
+    procedure Boton10Click(Sender: TObject);
+    procedure Boton9Click(Sender: TObject);
+    procedure Boton1Click(Sender: TObject);
+    procedure Boton2Click(Sender: TObject);
+    procedure Boton3Click(Sender: TObject);
+    procedure Boton4Click(Sender: TObject);
+    procedure Boton5Click(Sender: TObject);
+    procedure Boton6Click(Sender: TObject);
+    procedure Boton7Click(Sender: TObject);
+    procedure Boton8Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+const
+  MAXTAM : integer=20;
+  MINTAM : integer=10;
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.DFM}
+
+procedure Tform1.CambiarEstilo(s:TFontStyle);
+begin
+   With Etiqueta.Font do
+    if s In Style Then
+       Style:=Style-[s]
+    Else
+       Style:=Style+[s];
+
+end;
+
+procedure TForm1.Boton1Click(Sender: TObject);
+begin
+ Etiqueta.Font.Name:='Arial';
+end;
+
+procedure TForm1.Boton2Click(Sender: TObject);
+begin
+ Etiqueta.Font.Name:='Courier';
+end;
+
+procedure TForm1.Boton3Click(Sender: TObject);
+begin
+ Etiqueta.Font.Name:='Roman';
+end;
+
+procedure TForm1.Boton4Click(Sender: TObject);
+begin
+ Etiqueta.Font.Name:='Script';
+end;
+
+procedure TForm1.Boton5Click(Sender: TObject);
+begin
+ CambiarEstilo(fsBold);
+end;
+
+procedure TForm1.Boton6Click(Sender: TObject);
+begin
+ CambiarEstilo(fsItalic);
+end;
+
+procedure TForm1.Boton7Click(Sender: TObject);
+begin
+ CambiarEstilo(fsUnderline);
+end;
+
+procedure TForm1.Boton8Click(Sender: TObject);
+begin
+ CambiarEstilo(fsStrikeOut);
+end;
+
+procedure TForm1.Boton9Click(Sender: TObject);
+begin
+ if(Etiqueta.Font.Size<MAXTAM) then
+   Etiqueta.Font.Size:=Etiqueta.Font.Size+1;
+
+end;
+
+procedure TForm1.Boton10Click(Sender: TObject);
+begin
+ if(Etiqueta.Font.Size>MINTAM) then
+   Etiqueta.Font.Size:=Etiqueta.Font.Size-1;
+
+end;
+
+procedure TForm1.Boton11Click(Sender: TObject);
+begin
+ Etiqueta.Font.Color:=clBlack;
+end;
+
+procedure TForm1.Boton12Click(Sender: TObject);
+begin
+ Etiqueta.Font.Color:=clGreen;
+end;
+
+end.
